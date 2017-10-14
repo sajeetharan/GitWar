@@ -72,9 +72,6 @@ Run ng test --single-run --code-coverage and see the generated coverage results 
 
 ## Features
 
-
-#### Login
- 
 ### Todos
  - Write MORE Tests
 
