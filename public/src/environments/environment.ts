@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  access_token: 'e3fe83bbb20a95f4b17df7d431a161310813d701'
+  access_token: '48e929fffd5cc9852aa031a5f8216aa538edef59'
 };
