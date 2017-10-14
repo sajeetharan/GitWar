@@ -1,0 +1,12 @@
+<img src="{{user1.imgURL}}" alt="github avatar">
+<div style="color:green;">
+  <h3>1st Place:</h3>
+  <p>{{ user1.username }} (Score: {{ user1.score }})</p>
+</div>
+<div style="color:red;">
+  <h3>2nd Place:</h3>
+  <p>{{ user2.username }} (Score: {{ user2.score }})</p>
+</div>
+<p>
+  <button (click)="reset()">Reset</button>
+</p>

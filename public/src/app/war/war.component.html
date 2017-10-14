@@ -1,0 +1,53 @@
+<div class="battle">
+  <div class="player">
+    <div *ngIf="!player1.isUser">
+      <h1>Player 1</h1>
+      <form (submit)="findUser(player1.username, 1)">
+        <p>
+          GitHub Username:
+          <input type="text" name="username" required [(ngModel)]="player1.username" #username="ngModel">
+        </p>
+        <p style="color:red;" *ngIf="player1.isUser===false">
+          GitHub username does not exist. Try again.
+        </p>
+        <input type="submit" value="Add User" [disabled]="!username.valid">
+      </form>
+    </div>
+    <!-- end Form div -->
+    <div *ngIf="player1.isUser">
+      <img src="{{player1.imgURL}}" alt="github avatar">
+      <p>{{ player1.username }}</p>
+    </div>
+    <!-- end GitHub Info div -->
+  </div>
+  <!-- end Player div -->
+
+  <div class="player">
+    <div *ngIf="!player2.isUser">
+      <h1>Player 2</h1>
+      <form (submit)="findUser(player2.username, 2)">
+        <p>
+          GitHub Username:
+          <input type="text" name="username" required [(ngModel)]="player2.username" #username="ngModel">
+        </p>
+        <p style="color:red;" *ngIf="player2.isUser===false">
+          GitHub username does not exist. Try again.
+        </p>
+        <input type="submit" value="Add User" [disabled]="!username.valid">
+      </form>
+    </div>
+    <!-- end Form div -->
+    <div *ngIf="player2.isUser">
+      <img src="{{player2.imgURL}}" alt="github avatar">
+      <p>{{ player2.username }}</p>
+    </div>
+    <!-- end GitHub Info div -->
+  </div>
+  <!-- end Player div -->
+</div>
+
+<p>
+  <button *ngIf="player1.isUser && player2.isUser" (click)="war()">
+    WAR!
+  </button>
+</p>
