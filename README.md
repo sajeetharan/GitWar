@@ -71,10 +71,10 @@ Run ng test --single-run --code-coverage and see the generated coverage results 
  
 
 ## Features
+(i)  User can view his profile information by typing github username
+(ii)
 
 
-#### Login
- 
 ### Todos
  - Write MORE Tests
 
