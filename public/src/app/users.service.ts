@@ -24,7 +24,7 @@ export class UsersService {
   }
 
   findUser(username, callback, errCallback) {
-    this._http.get('https://api.github.com/users/' + username + '?access_token=' + environment.access_token).subscribe(
+    this._http.get('https://api.github.com/users/' + username ).subscribe(
       (response) => {
         callback(response.json());
       },
