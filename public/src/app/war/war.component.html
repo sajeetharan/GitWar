@@ -2,9 +2,8 @@
   <div class="row">
 
     <div class="col-6 p-3 text-center">
-      <div class="card">
-
-        <form *ngIf="!player1.isUser" (submit)="findUser(player1.username, 1)" class="card-body">
+      <div *ngIf="!player1.isUser" class="card">
+        <form (submit)="findUser(player1.username, 1)" class="card-body">
           <h4 class="card-title">Player 1</h4>
           <div *ngIf="!player1.isUser">
             <div class="form-group">
@@ -17,23 +16,20 @@
             </div>
           </div>
         </form>
-
-        <div *ngIf="player1.isUser">
-          <img class="card-img-top" [src]="player1.imgURL" [alt]="player1.username">
-          <div class="card-body">
-            <h4 class="card-title">{{ player1.username }}</h4>
-            <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-          </div>
-        </div>
-
       </div>
+
+      <div *ngIf="player1.isUser" class="card w-75 m-auto">
+        <img class="card-img-top" [src]="player1.imgURL" [alt]="player1.username">
+        <div class="card-body">
+          <h4 class="card-title text-center">{{ player1.username }}</h4>
+        </div>
+      </div>
+
     </div>
 
     <div class="col-6 p-3 text-center">
-      <div class="card">
-
-        <form *ngIf="!player2.isUser" (submit)="findUser(player2.username, 2)" class="card-body">
+      <div *ngIf="!player2.isUser" class="card">
+        <form (submit)="findUser(player2.username, 2)" class="card-body">
           <h4 class="card-title">Player 2</h4>
           <div *ngIf="!player2.isUser">
             <div class="form-group">
@@ -46,19 +42,16 @@
             </div>
           </div>
         </form>
-
-        <div *ngIf="player2.isUser">
-          <img class="card-img-top" [src]="player2.imgURL" [alt]="player2.username">
-          <div class="card-body">
-            <h4 class="card-title">{{ player2.username }}</h4>
-            <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-          </div>
-        </div>
-
       </div>
-    </div>
 
+      <div *ngIf="player2.isUser" class="card w-75 m-auto">
+        <img class="card-img-top" [src]="player2.imgURL" [alt]="player2.username">
+        <div class="card-body">
+          <h4 class="card-title text-center">{{ player2.username }}</h4>
+        </div>
+      </div>
+
+    </div>
 
   </div>
 </div>
@@ -69,7 +62,7 @@
   </button>
 </p>
 
-  <!-- <div class="battle">
+<!-- <div class="battle">
     <div class="player">
       <div *ngIf="!player1.isUser">
         <h1>Player 1</h1>
