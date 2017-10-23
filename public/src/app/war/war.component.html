@@ -1,53 +1,111 @@
-<div class="battle">
-  <div class="player">
-    <div *ngIf="!player1.isUser">
-      <h1>Player 1</h1>
-      <form (submit)="findUser(player1.username, 1)">
-        <p>
-          GitHub Username:
-          <input type="text" name="username" required [(ngModel)]="player1.username" #username="ngModel">
-        </p>
-        <p style="color:red;" *ngIf="player1.isUser===false">
-          GitHub username does not exist. Try again.
-        </p>
-        <input type="submit" value="Add User" [disabled]="!username.valid">
-      </form>
-    </div>
-    <!-- end Form div -->
-    <div *ngIf="player1.isUser">
-      <img src="{{player1.imgURL}}" alt="github avatar">
-      <p>{{ player1.username }}</p>
-    </div>
-    <!-- end GitHub Info div -->
-  </div>
-  <!-- end Player div -->
+<div class="container">
+  <div class="row">
 
-  <div class="player">
-    <div *ngIf="!player2.isUser">
-      <h1>Player 2</h1>
-      <form (submit)="findUser(player2.username, 2)">
-        <p>
-          GitHub Username:
-          <input type="text" name="username" required [(ngModel)]="player2.username" #username="ngModel">
-        </p>
-        <p style="color:red;" *ngIf="player2.isUser===false">
-          GitHub username does not exist. Try again.
-        </p>
-        <input type="submit" value="Add User" [disabled]="!username.valid">
-      </form>
+    <div class="col-6 p-3 text-center">
+      <div class="card">
+
+        <form *ngIf="!player1.isUser" (submit)="findUser(player1.username, 1)" class="card-body">
+          <h4 class="card-title">Player 1</h4>
+          <div *ngIf="!player1.isUser">
+            <div class="form-group">
+              <label for="">GitHub Username:</label>
+              <input class="form-control" type="text" name="username" required [(ngModel)]="player1.username" #username="ngModel">
+              <p class="alert alert-danger" *ngIf="player1.isUser===false">
+                GitHub username does not exist. Try again.
+              </p>
+              <input type="submit" href="#" [disabled]="!username.valid" class="btn btn-primary my-3" value="Add User">
+            </div>
+          </div>
+        </form>
+
+        <div *ngIf="player1.isUser">
+          <img class="card-img-top" [src]="player1.imgURL" [alt]="player1.username">
+          <div class="card-body">
+            <h4 class="card-title">{{ player1.username }}</h4>
+            <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+
+      </div>
     </div>
-    <!-- end Form div -->
-    <div *ngIf="player2.isUser">
-      <img src="{{player2.imgURL}}" alt="github avatar">
-      <p>{{ player2.username }}</p>
+
+    <div class="col-6 p-3 text-center">
+      <div class="card">
+
+        <form *ngIf="!player2.isUser" (submit)="findUser(player2.username, 2)" class="card-body">
+          <h4 class="card-title">Player 2</h4>
+          <div *ngIf="!player2.isUser">
+            <div class="form-group">
+              <label for="">GitHub Username:</label>
+              <input class="form-control" type="text" name="username" required [(ngModel)]="player2.username" #username="ngModel">
+              <p class="alert alert-danger" *ngIf="player2.isUser===false">
+                GitHub username does not exist. Try again.
+              </p>
+              <input type="submit" href="#" [disabled]="!username.valid" class="btn btn-primary my-3" value="Add User">
+            </div>
+          </div>
+        </form>
+
+        <div *ngIf="player2.isUser">
+          <img class="card-img-top" [src]="player2.imgURL" [alt]="player2.username">
+          <div class="card-body">
+            <h4 class="card-title">{{ player2.username }}</h4>
+            <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+
+      </div>
     </div>
-    <!-- end GitHub Info div -->
+
+
   </div>
-  <!-- end Player div -->
 </div>
 
-<p>
-  <button *ngIf="player1.isUser && player2.isUser" (click)="war()">
+<p class="text-center">
+  <button class="btn btn-danger btn-lg" *ngIf="player1.isUser && player2.isUser" (click)="war()">
     WAR!
   </button>
 </p>
+
+  <!-- <div class="battle">
+    <div class="player">
+      <div *ngIf="!player1.isUser">
+        <h1>Player 1</h1>
+        <form (submit)="findUser(player1.username, 1)">
+          <p>
+            GitHub Username:
+            <input type="text" name="username" required [(ngModel)]="player1.username" #username="ngModel">
+          </p>
+          <p style="color:red;" *ngIf="player1.isUser===false">
+            GitHub username does not exist. Try again.
+          </p>
+          <input type="submit" value="Add User" [disabled]="!username.valid">
+        </form>
+      </div>
+      <div *ngIf="player1.isUser">
+        <img src="{{player1.imgURL}}" alt="github avatar">
+        <p>{{ player1.username }}</p>
+      </div>
+    </div>
+    <div class="player">
+      <div *ngIf="!player2.isUser">
+        <h1>Player 2</h1>
+        <form (submit)="findUser(player2.username, 2)">
+          <p>
+            GitHub Username:
+            <input type="text" name="username" required [(ngModel)]="player2.username" #username="ngModel">
+          </p>
+          <p style="color:red;" *ngIf="player2.isUser===false">
+            GitHub username does not exist. Try again.
+          </p>
+          <input type="submit" value="Add User" [disabled]="!username.valid">
+        </form>
+      </div>
+      <div *ngIf="player2.isUser">
+        <img src="{{player2.imgURL}}" alt="github avatar">
+        <p>{{ player2.username }}</p>
+      </div>
+    </div>
+  </div> -->
