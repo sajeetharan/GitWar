@@ -21,7 +21,16 @@
       <div *ngIf="player1.isUser" class="card w-75 m-auto">
         <img class="card-img-top" [src]="player1.imgURL" [alt]="player1.username">
         <div class="card-body">
-          <h4 class="card-title text-center">{{ player1.username }}</h4>
+          <h4 class="card-title text-center">{{ player1.name }}</h4>
+          <p class="card-text text-left"><strong>Bio: </strong>{{ player1.bio }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Location: </strong>{{ player1.location }}</li>
+          <li class="list-group-item"><strong>Repos: </strong>{{ player1.public_repos }}</li>
+          <li class="list-group-item"><strong>Date Joined: </strong>{{ player1.created_at | date }}</li>
+        </ul>
+        <div class="card-body">
+          <a [href]="player1.html_url" target="_blank">{{ "@"+player1.login }}</a>
         </div>
       </div>
 
@@ -47,7 +56,16 @@
       <div *ngIf="player2.isUser" class="card w-75 m-auto">
         <img class="card-img-top" [src]="player2.imgURL" [alt]="player2.username">
         <div class="card-body">
-          <h4 class="card-title text-center">{{ player2.username }}</h4>
+          <h4 class="card-title text-center">{{ player2.name }}</h4>
+          <p class="card-text text-left"><strong>Bio: </strong>{{ player2.bio }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Location: </strong>{{ player2.location }}</li>
+          <li class="list-group-item"><strong>Repos: </strong>{{ player2.public_repos }}</li>
+          <li class="list-group-item"><strong>Date Joined: </strong>{{ player2.created_at | date }}</li>
+        </ul>
+        <div class="card-body">
+          <a [href]="player2.html_url" target="_blank">{{ "@"+player2.login }}</a>
         </div>
       </div>
 

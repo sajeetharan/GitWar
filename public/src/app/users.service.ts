@@ -36,13 +36,13 @@ export class UsersService {
 
   calculate(user1, user2, callback) {
     this.user1 = user1;
-    const score1 = (user1.user.public_repos + user1.user.followers) * 12;
+    const score1 = (user1.public_repos + user1.followers) * 12;
     this.user1.score = score1;
     this.addUser({ username: user1.username, score: score1 }, () => {
     });
 
     this.user2 = user2;
-    const score2 = (user2.user.public_repos + user2.user.followers) * 12;
+    const score2 = (user2.public_repos + user2.followers) * 12;
     this.user2.score = score2;
     this.addUser({ username: user2.username, score: score2 }, () => {
     });
