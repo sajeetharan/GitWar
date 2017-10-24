@@ -26,6 +26,7 @@ export class UsersService {
   findUser(username, callback, errCallback) {
     this._http.get('https://api.github.com/users/' + username ).subscribe(
       (response) => {
+        console.log(response.json())
         callback(response.json());
       },
       (err) => {

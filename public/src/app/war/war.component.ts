@@ -10,14 +10,14 @@ import { UsersService } from '../users.service';
 })
 export class WarComponent implements OnInit {
 
-  player1 = {
+  player1:any = {
     isUser: null,
     username: '',
     imgURL: '',
     user: null
   };
 
-  player2 = {
+  player2:any = {
     isUser: null,
     username: '',
     imgURL: '',
@@ -29,13 +29,13 @@ export class WarComponent implements OnInit {
   findUser(username, playerNum) {
     this._usersService.findUser(username, (user) => {
       if (playerNum === 1) {
+        this.player1 = user;
         this.player1.isUser = true;
         this.player1.imgURL = user.avatar_url;
-        this.player1.user = user;
       } else {
+        this.player2 = user;
         this.player2.isUser = true;
         this.player2.imgURL = user.avatar_url;
-        this.player2.user = user;
       }
     }, () => {
       if (playerNum === 1) {
