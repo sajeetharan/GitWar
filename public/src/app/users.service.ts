@@ -54,7 +54,7 @@ export class UsersService {
     const body = JSON.stringify(user);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    this._http.post('/users', body, options).subscribe(
+    this._http.post('http://localhost:8000/users', body, options).subscribe(
       (response) => {
         callback();
       },

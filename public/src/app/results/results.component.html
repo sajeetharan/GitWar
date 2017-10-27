@@ -7,6 +7,10 @@
   <h3>2nd Place:</h3>
   <p>{{ user2.username }} (Score: {{ user2.score }})</p>
 </div>
+<div>
+  <app-graph [score1]="user1" [score2]="user2">
+  </app-graph>
+</div>
 <p>
   <button (click)="reset()">Reset</button>
 </p>
