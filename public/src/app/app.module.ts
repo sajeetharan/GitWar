@@ -9,19 +9,23 @@ import { AppComponent } from './app.component';
 import { WarComponent } from './war/war.component';
 import { RankingsComponent } from './rankings/rankings.component';
 import { ResultsComponent } from './results/results.component';
+import { GraphComponent } from './graph/graph.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     RankingsComponent,
     WarComponent,
-    ResultsComponent
+    ResultsComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ChartsModule
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]
